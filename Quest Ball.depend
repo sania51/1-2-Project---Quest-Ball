@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1541779373 source:d:\codes\game\quest ball\main.cpp
+	"header/gameee.hpp"
+
+1541844145 d:\codes\game\quest ball\header\gameee.hpp
+	<SFML/Graphics.hpp>
+	<bits/stdc++.h>
+	"Collision.h"
+
+1541838741 d:\codes\game\quest ball\header\collision.h
+
+1541838740 source:d:\codes\game\quest ball\collision.cpp
+	<SFML/Graphics.hpp>
+	<map>
+	"header/Collision.h"
+
