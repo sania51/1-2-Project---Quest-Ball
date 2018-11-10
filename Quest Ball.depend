@@ -14,3 +14,18 @@
 	<map>
 	"header/Collision.h"
 
+1541838740 source:d:\1-2-project---quest-ball\collision.cpp
+	<SFML/Graphics.hpp>
+	<map>
+	"header/Collision.h"
+
+1541838741 d:\1-2-project---quest-ball\header\collision.h
+
+1541779373 source:d:\1-2-project---quest-ball\main.cpp
+	"header/gameee.hpp"
+
+1541870846 d:\1-2-project---quest-ball\header\gameee.hpp
+	<SFML/Graphics.hpp>
+	<bits/stdc++.h>
+	"Collision.h"
+
