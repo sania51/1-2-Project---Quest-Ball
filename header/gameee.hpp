@@ -14,7 +14,7 @@ unsigned int menustate = 0;
 
 float Yvelocity = 0, val = 10;
 
-bool jumping = false, keycollected = false, levelup = false, gameplay = true, levelOneStarted = true, levelTwoStarted = false,levelThreeStarted = false, eaten=true;
+bool jumping = false, keycollected = false, levelup = false, gameplay = true,c1=false,c2=false, levelOneStarted = true, levelTwoStarted = false,levelThreeStarted = false, eaten=true;
 
 RenderWindow window(VideoMode(1500,900), "Quest Ball");
 
@@ -92,37 +92,37 @@ int ground2(int x, int y)
 int ground3(int x, int y)
 {
     if((x >= 900 && x <= 1068) && y <= 128+35){
-        return 128; // middle box
+        return 138;
     }
     else if((x >= 364 && x <= 804) && y <= 130+35){
-        return 130; // arrow down
+        return 140;
     }
     else if((x >= 1190 && x <= 1500) && y <= 160+35){
-        return 160; // arrow down
+        return 160;
     }
     else if((x >= 0 && x <= 204) && y <= 285+35){
-        return 285; // middle down
+        return 270;
     }
     else if((x >= 220 && x <= 428) && y <= 368+35){
-        return 368; // arrow
+        return 375;
     }
     else if((x >= 500 && x <= 692) && y <= 424+35){
-        return 424; // middle tree
+        return 440;
     }
     else if((x >= 804 && x <= 1252) && y <= 432+35){
-        return 432; // middle upper
+        return 442;
     }
     else if((x >= 740 && x <= 1124) && y <= 624+35){
-        return 624; // middle mushroom
+        return 635;
     }
     else if((x >= 1290 && x <= 1500) && y <= 630+35){
-        return 630; // left middle
+        return 640;
     }
     else if((x >= 0 && x <= 380) && y <= 720+35){
-        return 720; //upper left
+        return 720;
     }
     else if((x >= 528 && x <= 755) && y <= 756+35){
-        return 756; // last
+        return 766;
     }
     else{
         return 875;
@@ -147,6 +147,11 @@ void game(){
     eatBuf.loadFromFile("resources/eet.wav");
     Sound eatSound;
     eatSound.setBuffer(eatBuf);
+
+    SoundBuffer crashBuf;
+    crashBuf.loadFromFile("resources/crash.wav");
+    Sound crashSound;
+    crashSound.setBuffer(crashBuf);
 
     Font fCoin;
     fCoin.loadFromFile("resources/COOPBL.TTF");
@@ -472,6 +477,8 @@ void game(){
             for(i = 0; i<4; i++){
                 if(Collision::PixelPerfectTest(sawAra[i], sball)){
                     chance++;
+                    c1=true;
+                    if(c1) crashSound.play();
                     if(chance < 3){
                         sball.setPosition(1100,600);
                         lifeAra[chance].setPosition(-300,-300);
@@ -486,6 +493,8 @@ void game(){
             for(i = 0; i<5; i++){
                 if(Collision::PixelPerfectTest(spikeAra[i], sball)){
                     chance++;
+                    c2=true;
+                    if(c2) crashSound.play();
                     if(chance < 3){
                         sball.setPosition(1100,600);
                         lifeAra[chance].setPosition(-300,-300);
@@ -647,6 +656,8 @@ void game(){
                 for(i = 0; i<4; i++){
                     if(Collision::PixelPerfectTest(sawAra[i], sball)){
                         chance++;
+                        c1=true;
+                    if(c1) crashSound.play();
                         if(chance < 3){
                             sball.setPosition(25, 656);
                             lifeAra[chance].setPosition(-300,-300);
@@ -661,6 +672,8 @@ void game(){
                 for(i = 0; i<5; i++){
                     if(Collision::PixelPerfectTest(spikeAra[i], sball)){
                         chance++;
+                        c2=true;
+                    if(c2) crashSound.play();
                         if(chance < 3){
                             sball.setPosition(25, 656);
                             lifeAra[chance].setPosition(-300,-300);
@@ -824,6 +837,8 @@ void game(){
                 for(i = 0; i<4; i++){
                     if(Collision::PixelPerfectTest(sawAra[i], sball)){
                         chance++;
+                        c1=true;
+                    if(c1) crashSound.play();
                         if(chance < 3){
                             sball.setPosition(25, 656);
                             lifeAra[chance].setPosition(-300,-300);
@@ -838,6 +853,8 @@ void game(){
                 for(i = 0; i<5; i++){
                     if(Collision::PixelPerfectTest(spikeAra[i], sball)){
                         chance++;
+                        c2=true;
+                    if(c2) crashSound.play();
                         if(chance < 3){
                             sball.setPosition(25, 656);
                             lifeAra[chance].setPosition(-300,-300);
